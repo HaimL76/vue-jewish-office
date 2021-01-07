@@ -1,19 +1,24 @@
 <template>
   <h1>מידע אישי</h1>
+  <div>
+שם פרטי {{person.first}}
+שם משפחה {{person.last}}
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'UserInfo',
-  props: {
-    first: String,
-    last: String,
-    title: String
-  },
-  data() {
-    return {
-      count: 0
+  import { ref, reactive } from 'vue'
+
+  export default {
+    setup() {
+      const person = reactive({ first: 'זלמן', last: 'פוזננסקי' });
+      const dummy = ref(0);
+
+      // expose to template
+      return {
+        person,
+        dummy
+      };
     }
   }
-}
 </script>
