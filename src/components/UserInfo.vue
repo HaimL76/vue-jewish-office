@@ -9,7 +9,7 @@
 
 <script>
 import { ref, reactive, onMounted } from "vue";
-import { login } from "../modules/login.ts";
+import { login } from "../modules/login.js";
 export default {
   name: 'UserInfo',
   props: {
@@ -24,7 +24,7 @@ export default {
     });
 
 function fetchData() {
-  
+  login("HaimL", "aaa");
 
   var endPoint = 'https://jewishoffice.co.il/tora-app/backend/get_users.php?uid=1';
 
