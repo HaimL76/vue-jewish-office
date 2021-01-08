@@ -9,6 +9,7 @@
 
 <script>
 import { ref, reactive, onMounted } from "vue";
+import { login } from "../modules/login";
 export default {
   name: 'UserInfo',
   props: {
