@@ -23,6 +23,8 @@ export default {
     });
 
 function fetchData() {
+  
+
   var endPoint = 'https://jewishoffice.co.il/tora-app/backend/get_users.php?uid=1';
 
     loading.value = true;
