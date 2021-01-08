@@ -23,10 +23,12 @@ export default {
     });
 
 function fetchData() {
+  var endPoint = 'https://jewishoffice.co.il/tora-app/backend/get_users.php?uid=1';
+
     loading.value = true;
     // I prefer to use fetch
     // you can use use axios as an alternative
-    return fetch('http://jsonplaceholder.typicode.com/posts', {
+    return fetch(endPoint, {
       method: 'get',
       headers: {
         'content-type': 'application/json'
