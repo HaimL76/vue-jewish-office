@@ -1,6 +1,6 @@
 module.exports = {
     login: (username, password) => {
-        var endPoint = 'https://jewishoffice.co.il/tora-app/backend/post_login.php';
+        var endPoint = '../backend/post_login.php';
 
         // I prefer to use fetch
         // you can use use axios as an alternative
