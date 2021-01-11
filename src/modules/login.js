@@ -1,50 +1,38 @@
 module.exports = {
-    login: (username, password) => {
-        var endPoint = '../backend/post_login.php';
+    login
+};
 
-        // I prefer to use fetch
-        // you can use use axios as an alternative
-        return fetch(endPoint, {
-                method: 'post',
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    usr: username,
-                    pwd: password
-                })
-            })
-            .then(res => {
-                // a non-200 response code
-                if (!res.ok) {
-                    // create error instance with HTTP status text
-                    const error = new Error(res.statusText);
-                    //error.json = res.json();
-                    throw error;
-                }
+async function login(username, password) {
+    const endPoint = '../backend/post_login.php';
 
-                return res.json();
-            })
-            .then(json => {
-                // set the response data
-                //data.value = json.data;
+    const postParams = JSON.stringify({
+        usr: username,
+        pwd: password
+    });
 
-                alert(JSON.stringify(json));
-            })
-            .catch(err => {
-                //error.value = err;
+    //alert(postParams);
 
-                //alert(JSON.stringify(error.value));
+    const postHeaders = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "pragma": "no-cache",
+        "cache-control": "no-cache"
+    };
 
-                // In case a custom JSON error response was provided
-                if (err.json) {
-                    return err.json.then(json => {
-                        // set the JSON response message
-                        //error.value.message = json.message;
-                        alert(JSON.stringify(json));
-                    });
-                }
-            })
-            .then(() => {});
+    const postOptions = {
+        method: 'post',
+        headers: postHeaders,
+        body: postParams
     }
+
+    // I prefer to use fetch
+    // you can use use axios as an alternative 
+    const response = await fetch(endPoint, postOptions);
+
+    if (!response.ok) {
+        const errorMessage = await response.text();
+        throw new Error(errorMessage);
+    }
+
+    return response;
 }
