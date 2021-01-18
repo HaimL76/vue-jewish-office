@@ -1,5 +1,5 @@
 import { createWebHashHistory, createRouter } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import Login from "./components/Login.vue";
 import UserInfo from "./components/UserInfo.vue";
 import UserPersonal from "./components/UserPersonal.vue";
 //import Home from "./components/Home.vue";
@@ -7,7 +7,7 @@ import UserPersonal from "./components/UserPersonal.vue";
 //import Recipes from "./components/Recipes.vue";
 const history = createWebHashHistory();
 const routes = [
-    { path: "/", component: HelloWorld },
+    { path: "/", component: Login },
     { path: "/info", component: UserInfo },
     { path: "/personal", component: UserPersonal },
     //מידע
